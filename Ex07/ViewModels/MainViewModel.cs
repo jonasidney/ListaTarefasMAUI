@@ -11,7 +11,19 @@ using Microsoft.Maui.Storage;
 public class MainViewModel : INotifyPropertyChanged
 {
     public ObservableCollection<Tarefa> Tarefas { get; set; }
+    public ObservableCollection<Tarefa> TarefasFiltradas {get; set;}
 
+    private string _filtro;
+    public string Filtro
+    {
+        get => _filtro;
+        set
+        {
+            _filtro = value;
+            OnPropertyChanged();
+            ExecutarFiltrarTarefa();
+        }
+    }
     private string _novaTarefa;
     public string NovaTarefa
     {
@@ -24,16 +36,19 @@ public class MainViewModel : INotifyPropertyChanged
     }
 
     public ICommand AdicionarTarefaCommand { get; }
-
+    public ICommand FiltrarTarefaCommand { get; }
     public ICommand RemoverTarefaCommand { get; }
 
     public MainViewModel()
     {
         Tarefas = new ObservableCollection<Tarefa>();
+        TarefasFiltradas = new ObservableCollection<Tarefa>();
 
         CarregarTarefas();
 
         AdicionarTarefaCommand = new Command(ExecutarAdicionarTarefa);
+        
+        FiltrarTarefaCommand = new Command(ExecutarFiltrarTarefa);
 
         RemoverTarefaCommand = new Command<Tarefa>(ExecutarRemoverTarefa);
     }
@@ -52,7 +67,29 @@ public class MainViewModel : INotifyPropertyChanged
 
             SalvarTarefas();
         }
+
+        ExecutarFiltrarTarefa();
         
+    }
+
+    private void ExecutarFiltrarTarefa()
+    {
+        if (string.IsNullOrWhiteSpace(Filtro))
+        {
+            ExecutarAtualizarListaTarefa(Tarefas);
+        }
+        else
+        {
+            var filtradas = Tarefas.Where(t => t.Nome.ToLower().Contains(Filtro.ToLower())).ToList();
+            ExecutarAtualizarListaTarefa(filtradas);
+        }
+    }
+
+    private void ExecutarAtualizarListaTarefa(IEnumerable<Tarefa> tarefas)
+    {
+        TarefasFiltradas.Clear();
+
+        foreach (var t in tarefas) TarefasFiltradas.Add(t);
     }
 
     private void ExecutarRemoverTarefa(Tarefa tarefaParaRemover)
