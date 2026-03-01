@@ -1,5 +1,6 @@
 namespace Ex07.ViewModels;
 
+using Ex07.Models;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -9,7 +10,7 @@ using Microsoft.Maui.Storage;
 
 public class MainViewModel : INotifyPropertyChanged
 {
-    public ObservableCollection<string> Tarefas { get; set; }
+    public ObservableCollection<Tarefa> Tarefas { get; set; }
 
     private string _novaTarefa;
     public string NovaTarefa
@@ -28,20 +29,25 @@ public class MainViewModel : INotifyPropertyChanged
 
     public MainViewModel()
     {
-        Tarefas = new ObservableCollection<string>();
+        Tarefas = new ObservableCollection<Tarefa>();
 
         CarregarTarefas();
 
         AdicionarTarefaCommand = new Command(ExecutarAdicionarTarefa);
 
-        RemoverTarefaCommand = new Command<string>(ExecutarRemoverTarefa);
+        RemoverTarefaCommand = new Command<Tarefa>(ExecutarRemoverTarefa);
     }
     
     private void ExecutarAdicionarTarefa()
     {    
         if (!string.IsNullOrWhiteSpace(NovaTarefa))
         {
-            Tarefas.Add(NovaTarefa);
+            var nova = new Tarefa { Nome = NovaTarefa };
+
+            // 1. Assina o evento de mudança de propriedade da tarefa para salvar as mudanças automaticamente
+            nova.PropertyChanged += (s, e) => SalvarTarefas();
+
+            Tarefas.Add(nova);
             NovaTarefa = string.Empty;
 
             SalvarTarefas();
@@ -49,9 +55,9 @@ public class MainViewModel : INotifyPropertyChanged
         
     }
 
-    private void ExecutarRemoverTarefa(string tarefaParaRemover)
+    private void ExecutarRemoverTarefa(Tarefa tarefaParaRemover)
     {
-        if (Tarefas.Contains(tarefaParaRemover))
+        if (tarefaParaRemover != null)
         {
             Tarefas.Remove(tarefaParaRemover);
             SalvarTarefas();
@@ -68,15 +74,27 @@ public class MainViewModel : INotifyPropertyChanged
     {
         string json = Preferences.Default.Get("lista_tarefas", "[]");
 
-        var tarefasSalvas = JsonSerializer.Deserialize<ObservableCollection<string>>(json);
-
-        if (tarefasSalvas != null)
+        try
         {
-            Tarefas.Clear();
-            foreach (var tarefa in tarefasSalvas)
+            var tarefasSalvas = JsonSerializer.Deserialize<ObservableCollection<Tarefa>>(json);
+
+            if (tarefasSalvas != null)
             {
-                Tarefas.Add(tarefa);
+                Tarefas.Clear();
+                foreach (var tarefa in tarefasSalvas)
+                {
+                    // 1. Assina o evento de mudança de propriedade da tarefa para salvar as mudanças automaticamente
+                    tarefa.PropertyChanged += (s, e) => SalvarTarefas();
+                    Tarefas.Add(tarefa);
+                }
             }
+
+        }
+        catch (JsonException)
+        {
+            // Se o JSON antigo era de strings e o novo é de objetos, pode dar erro na primeira vez.
+            // Se isso acontecer, limpamos tudo para começar do zero com o novo formato.
+            Preferences.Default.Remove("lista_tarefas");
         }
     }
 

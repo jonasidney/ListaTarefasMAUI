@@ -1488,6 +1488,7 @@ C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Debug\net9.0-android\Ex07.G
 C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Debug\net9.0-android\Ex07.AssemblyInfoInputs.cache
 C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Debug\net9.0-android\Ex07.AssemblyInfo.cs
 C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Debug\net9.0-android\Ex07.csproj.CoreCompileInputs.cache
+C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Debug\net9.0-android\Ex07.sourcelink.json
 C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Debug\net9.0-android\XamlC.stamp
 C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Debug\net9.0-android\Ex07.dll
 C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Debug\net9.0-android\Ex07.pdb
