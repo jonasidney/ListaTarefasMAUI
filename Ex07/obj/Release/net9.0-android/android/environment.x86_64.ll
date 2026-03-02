@@ -5648,7 +5648,7 @@ target triple = "x86_64-unknown-linux-android21"
 @.env.5 = private unnamed_addr constant [15 x i8] c"LowercaseCrc64\00", align 1
 
 ;ApplicationConfig
-@.ApplicationConfig.0_android_package_name = private unnamed_addr constant [21 x i8] c"com.companyname.ex07\00", align 16
+@.ApplicationConfig.0_android_package_name = private unnamed_addr constant [24 x i8] c"com.jotacorp.superlista\00", align 16
 
 ;DSOCacheEntry
 @.DSOCacheEntry.0_name = private unnamed_addr constant [34 x i8] c"libSystem.Globalization.Native.so\00", align 16

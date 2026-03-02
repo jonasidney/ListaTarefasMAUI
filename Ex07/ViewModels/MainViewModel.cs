@@ -24,13 +24,24 @@ public class MainViewModel : INotifyPropertyChanged
             ExecutarFiltrarTarefa();
         }
     }
-    private string _novaTarefa;
+    private string _novaTarefa = string.Empty;
     public string NovaTarefa
     {
         get => _novaTarefa;
         set
         {
             _novaTarefa = value;
+            OnPropertyChanged();
+        }
+    }
+
+    private string _prioridadeSelecionada = "M";
+    public string PrioridadeSelecionada
+    {
+        get => _prioridadeSelecionada;
+        set
+        {
+            _prioridadeSelecionada = value;
             OnPropertyChanged();
         }
     }
@@ -57,18 +68,23 @@ public class MainViewModel : INotifyPropertyChanged
     {    
         if (!string.IsNullOrWhiteSpace(NovaTarefa))
         {
-            var nova = new Tarefa { Nome = NovaTarefa };
-
+            var nova = new Tarefa
+            { 
+                Nome = NovaTarefa,
+                Prioridade = PrioridadeSelecionada,
+                DataCriacao = DateTime.Now
+            };
             // 1. Assina o evento de mudança de propriedade da tarefa para salvar as mudanças automaticamente
             nova.PropertyChanged += (s, e) => SalvarTarefas();
 
             Tarefas.Add(nova);
+            
             NovaTarefa = string.Empty;
+            PrioridadeSelecionada = "M";
 
+            ExecutarFiltrarTarefa();
             SalvarTarefas();
         }
-
-        ExecutarFiltrarTarefa();
         
     }
 
@@ -97,7 +113,10 @@ public class MainViewModel : INotifyPropertyChanged
         if (tarefaParaRemover != null)
         {
             Tarefas.Remove(tarefaParaRemover);
+            
             SalvarTarefas();
+
+            ExecutarFiltrarTarefa();
         }
     }
 
@@ -124,6 +143,8 @@ public class MainViewModel : INotifyPropertyChanged
                     tarefa.PropertyChanged += (s, e) => SalvarTarefas();
                     Tarefas.Add(tarefa);
                 }
+                
+                ExecutarAtualizarListaTarefa(Tarefas);
             }
 
         }

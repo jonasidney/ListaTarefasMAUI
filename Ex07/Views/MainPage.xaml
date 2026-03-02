@@ -17,10 +17,24 @@
            SearchCommand="{Binding FiltrarTarefaCommand}" />
 
         <!-- Entrada de Dados -->
-        <Entry Grid.Row="1"
-            Placeholder="Digite uma nova tarefa..." 
-            Text="{Binding NovaTarefa, Mode=TwoWay}" 
-            FontSize="18" />
+        <Grid Grid.Row="1" ColumnDefinitions="*, Auto" ColumnSpacing="10">
+            <Entry Grid.Column="0"
+                Placeholder="Digite uma nova tarefa..." 
+                Text="{Binding NovaTarefa, Mode=TwoWay}" 
+                FontSize="18" />
+
+            <Picker Grid.Column="1" Title="Prio"
+                WidthRequest="30"
+                SelectedItem="{Binding PrioridadeSelecionada, Mode=TwoWay}">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>A</x:String>
+                        <x:String>M</x:String>
+                        <x:String>B</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </Grid>
 
         <!-- Ação -->
         <Button Grid.Row="2"
@@ -80,10 +94,21 @@
                             </Label>
 
                             <!-- Linha 1, Coluna 1: Data e Hora (O NOVO!) -->
-                            <Label Grid.Column="1" Grid.Row="1"
-                                Text="{Binding DataCriacao, StringFormat='Criado em: {0:dd/MM/yyyy HH:mm}'}"
-                                FontSize="11" 
-                                TextColor="Gray" />
+                            <Label Grid.Column="1" Grid.Row="1" FontSize="11" TextColor="Gray">
+                                <Label.Text>
+                                    <MultiBinding StringFormat="Criado em: {0:dd/MM/yyyy HH:mm} | Prio: {1}">
+                                        <Binding Path="DataCriacao" />
+                                        <Binding Path="Prioridade" />
+                                    </MultiBinding>
+                                </Label.Text>
+
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding Concluida}" Value="True">
+                                        <Setter Property="Text" Value="{Binding DataConclusao, StringFormat='Concluído em: {0:dd/MM HH:mm}'}" />
+                                        <Setter Property="TextColor" Value="Green" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
 
                             <!-- Botão de Remover: O 'Auto' faz ele ocupar apenas o seu próprio tamanho -->
                             <Button Grid.Column="2" Grid.RowSpan="2"

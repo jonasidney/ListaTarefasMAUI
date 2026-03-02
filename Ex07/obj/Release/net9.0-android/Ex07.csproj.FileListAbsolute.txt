@@ -1,11 +1,6 @@
 C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\bin\Release\net9.0-android\Ex07.runtimeconfig.json
 C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\bin\Release\net9.0-android\Ex07.dll
 C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\bin\Release\net9.0-android\Ex07.pdb
-C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\bin\Release\net9.0-android\com.companyname.ex07.apk
-C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\bin\Release\net9.0-android\com.companyname.ex07.aab
-C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\bin\Release\net9.0-android\com.companyname.ex07-Signed.aab
-C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\bin\Release\net9.0-android\com.companyname.ex07-Signed.apk
-C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\bin\Release\net9.0-android\com.companyname.ex07-Signed.apk.idsig
 C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Release\net9.0-android\.NETCoreApp,Version=v9.0.AssemblyAttributes.cs
 C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Release\net9.0-android\build.props
 C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Release\net9.0-android\adb.props
@@ -131,10 +126,7 @@ C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Release\net9.0-android\Ex07
 C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Release\net9.0-android\Ex07.pdb
 C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Release\net9.0-android\Ex07.genruntimeconfig.cache
 C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Release\net9.0-android\Ex07.runtimeconfig.json.bin
-C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Release\net9.0-android\android\bin\com.companyname.ex07.apk
 C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Release\net9.0-android\android\bin\base.zip
-C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Release\net9.0-android\android\bin\com.companyname.ex07.aab
-C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Release\net9.0-android\android\bin\com.companyname.ex07.apks
 C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Release\net9.0-android\res\values\colors.xml
 C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Release\net9.0-android\uploadflags.txt
 C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Release\net9.0-android\resolvedassemblies.hash
@@ -454,3 +446,13 @@ C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Release\net9.0-android\stam
 C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Release\net9.0-android\stamp\_GenerateJavaStubs.stamp
 C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Release\net9.0-android\stamp\_GeneratePackageManagerJava.stamp
 C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Release\net9.0-android\stamp\_ResolveLibraryProjectImports.stamp
+C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\bin\Release\net9.0-android\com.jotacorp.superlista.apk
+C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\bin\Release\net9.0-android\com.jotacorp.superlista.aab
+C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\bin\Release\net9.0-android\com.jotacorp.superlista-Signed.aab
+C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\bin\Release\net9.0-android\com.jotacorp.superlista-Signed.apk
+C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\bin\Release\net9.0-android\com.jotacorp.superlista-Signed.apk.idsig
+C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Release\net9.0-android\Ex07.sourcelink.json
+C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Release\net9.0-android\android\bin\com.jotacorp.superlista.apk
+C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Release\net9.0-android\android\bin\com.jotacorp.superlista.aab
+C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Release\net9.0-android\android\bin\com.jotacorp.superlista.apks
+C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\obj\Release\net9.0-android\android\src\com\jotacorp\superlista\R.java

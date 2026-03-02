@@ -1,4 +1,4 @@
-C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\bin\Release\net9.0-android\publish\com.companyname.ex07-Signed.aab
-C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\bin\Release\net9.0-android\publish\com.companyname.ex07.aab
-C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\bin\Release\net9.0-android\publish\com.companyname.ex07-Signed.apk
+C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\bin\Release\net9.0-android\publish\com.jotacorp.superlista-Signed.aab
+C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\bin\Release\net9.0-android\publish\com.jotacorp.superlista.aab
+C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\bin\Release\net9.0-android\publish\com.jotacorp.superlista-Signed.apk
 C:\dev\visualstudio-workspace\Exercise\Ex07\Ex07\bin\Release\net9.0-android\publish\_Microsoft.Android.Resource.Designer.dll

@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 namespace Ex07.Models;
 public class Tarefa : INotifyPropertyChanged
 {
+    public DateTime DataCriacao { get; set; } = DateTime.Now;
     private string _nome = String.Empty;
     public string Nome
     { 
@@ -14,6 +15,29 @@ public class Tarefa : INotifyPropertyChanged
             OnPropertyChanged();   
         }
     }
+    
+    private string _prioridade = "M";
+    public string Prioridade
+    { 
+        get => _prioridade;
+        set
+        {
+            _prioridade = value;
+            OnPropertyChanged();   
+        }
+    }
+
+    private DateTime? _dataConclusao;
+    public DateTime? DataConclusao
+    { 
+        get => _dataConclusao;
+        set
+        {
+            _dataConclusao = value;
+            OnPropertyChanged();   
+        }
+    }
+
     private bool _concluida = false;
     public bool Concluida
     { 
@@ -21,10 +45,13 @@ public class Tarefa : INotifyPropertyChanged
         set
         {
             _concluida = value;
-            OnPropertyChanged();   
+            // Lógica: Se True, registra agora. Se False, limpa o registro.
+            DataConclusao = value ? DateTime.Now : null;
+            OnPropertyChanged();
+            // Avisamos que a DataConclusao mudou para o Label atualizar também
+            OnPropertyChanged(nameof(DataConclusao));
         }
     }
-    public DateTime DataCriacao { get; set; } = DateTime.Now;
 
     public event PropertyChangedEventHandler? PropertyChanged;
     protected void OnPropertyChanged([CallerMemberName] string? prop = null) =>
